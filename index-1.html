@@ -57,6 +57,18 @@ section{padding:90px 5%}
 h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.2;margin-bottom:16px}
 h2 span{color:var(--green)}
 
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:50px}
+.about-text p{color:rgba(226,232,240,0.75);line-height:1.8;margin-bottom:16px;font-size:0.97rem}
+.about-text p strong{color:var(--text)}
+.about-quote{border-left:3px solid var(--green);padding:16px 20px;background:rgba(0,229,160,0.04);border-radius:0 8px 8px 0;margin-top:24px;font-style:italic;color:var(--text);font-size:0.95rem}
+.about-cards{display:flex;flex-direction:column;gap:14px}
+.about-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;transition:border-color 0.2s}
+.about-card:hover{border-color:rgba(0,229,160,0.3)}
+.about-card-icon{font-size:1.4rem;margin-bottom:8px}
+.about-card h4{font-family:'Syne',sans-serif;font-size:0.9rem;font-weight:700;margin-bottom:4px;color:var(--text)}
+.about-card p{font-size:0.8rem;color:var(--muted);line-height:1.5}
+
 .skills-bg,.projects-bg,.contact-bg{background:var(--bg2)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px}
 .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px}
@@ -64,6 +76,22 @@ h2 span{color:var(--green)}
 .skill-tags{display:flex;flex-wrap:wrap;gap:7px}
 .tag{font-family:'DM Mono',monospace;font-size:0.68rem;padding:4px 10px;border-radius:4px;background:rgba(255,255,255,0.05);color:var(--muted);border:1px solid rgba(255,255,255,0.08)}
 .tag.green{background:rgba(0,229,160,0.08);color:var(--green);border-color:rgba(0,229,160,0.2)}
+
+/* ── EXPERIENCE ── */
+.timeline{margin-top:48px;position:relative}
+.timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--green),transparent)}
+.tl-item{display:grid;grid-template-columns:40px 1fr;gap:24px;margin-bottom:40px}
+.tl-dot{width:38px;height:38px;border-radius:50%;border:2px solid var(--green);display:flex;align-items:center;justify-content:center;background:var(--bg);font-size:0.8rem;flex-shrink:0;position:relative;z-index:1}
+.tl-content{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 24px;transition:border-color 0.2s}
+.tl-content:hover{border-color:rgba(0,229,160,0.3)}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.tl-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;color:var(--text)}
+.tl-date{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--green);background:rgba(0,229,160,0.08);padding:3px 10px;border-radius:100px;white-space:nowrap}
+.tl-company{font-size:0.85rem;color:var(--muted);margin-bottom:12px;font-style:italic}
+.tl-bullets{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tl-bullets li{font-size:0.85rem;color:rgba(226,232,240,0.7);padding-left:16px;position:relative;line-height:1.6}
+.tl-bullets li::before{content:'▸';position:absolute;left:0;color:var(--green);font-size:0.7rem;top:3px}
+.tl-bullets li strong{color:var(--text)}
 
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:22px;margin-top:48px}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;display:flex;flex-direction:column}
@@ -77,6 +105,18 @@ h2 span{color:var(--green)}
 .link-btn.secondary{border:1px solid var(--border);color:var(--muted)}
 .live-badge{display:inline-flex;align-items:center;gap:5px;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--green);background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);padding:2px 8px;border-radius:100px;margin-bottom:10px;width:fit-content}
 
+/* ── EDUCATION ── */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:48px}
+.edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;transition:border-color 0.2s}
+.edu-card:hover{border-color:rgba(0,229,160,0.3)}
+.edu-year{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--green);margin-bottom:8px}
+.edu-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px}
+.edu-card .inst{font-size:0.83rem;color:var(--muted);margin-bottom:8px}
+.edu-card .grade{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--amber)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:24px}
+.cert-item{background:rgba(0,229,160,0.04);border:1px solid rgba(0,229,160,0.12);border-radius:8px;padding:12px 16px;font-size:0.82rem;display:flex;align-items:center;gap:10px}
+.cert-item span{color:var(--muted)}
+
 .contact-inner{max-width:640px;margin:0 auto;text-align:center}
 .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-bottom:40px}
 .contact-link{display:flex;align-items:center;gap:8px;padding:12px 22px;border-radius:8px;text-decoration:none;font-size:0.85rem;border:1px solid var(--border);color:var(--text);font-family:'DM Mono',monospace}
@@ -87,6 +127,22 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
 .fade-up.visible{opacity:1;transform:none}
 @media(max-width:768px){.hero-stats{gap:24px}h1{font-size:2.4rem}}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  h1{font-size:2.4rem}
+  .tl-item{grid-template-columns:1fr}
+  .timeline::before{display:none}
+  .tl-dot{display:none}
+}
+
 </style>
 </head>
 <body>
@@ -96,7 +152,9 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
   <ul class="nav-links">
     <li><a href="#about">about</a></li>
     <li><a href="#skills">skills</a></li>
+    <li><a href="#experience">experience</a></li>
     <li><a href="#projects">projects</a></li>
+    <li><a href="#education">education</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
   <a href="mailto:pramodj551@gmail.com" class="nav-cta">hire me</a>
@@ -108,8 +166,8 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
     <div class="hero-badge">Open to Work — AI/ML & security Roles</div>
     <h1>PRAMOD<br/><span>PRAKASH</span><br/>JADHAV</h1>
     <p class="hero-sub">
-      <strong>AI/ML Developer & security Analyst</strong> — 12+ years SOC experience.
-      Building <strong>RAG pipelines & ML models for log analysis</strong> at IIT Patna.
+      <strong>AI/ML Developer & security Analyst</strong> — 12+ years securing critical experience.
+      Building <strong>RAG pipelines & ML models for log analysis threat detection tools</strong> at IIT Patna.
     </p>
     <div class="hero-btns">
       <a href="#projects" class="btn-primary">View Projects</a>
@@ -167,12 +225,79 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
       </div>
     </div>
     <div class="skill-card">
-      <h3>🔐 Cybersecurity</h3>
+      <h3>🔐 security Operations</h3>
       <div class="skill-tags">
         <span class="tag green">SOC Operations</span>
         <span class="tag">Incident Response</span>
         <span class="tag">Threat Detection</span>
         <span class="tag">CCTV Surveillance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag">career timeline</div>
+  <h2>Professional <span>Experience</span></h2>
+  <div class="timeline fade-up">
+    <div class="tl-item">
+      <div class="tl-dot">🔐</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div class="tl-title">Security Operations Officer (DGR)</div>
+          <div class="tl-date">Oct 2025 – Present</div>
+        </div>
+        <div class="tl-company">AP Securitas Pvt. Ltd. — Godrej IT Park, Mumbai</div>
+        <ul class="tl-bullets">
+          <li>Enforcing access-control and surveillance protocols at a high-footfall corporate IT park.</li>
+          <li><strong>Python automation scripts</strong> to flag anomalous access-log patterns — reducing manual review time by 40%.</li>
+          <li>Applying IIT Patna ML concepts to identify access anomalies and build predictive risk models.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🏢</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div class="tl-title">SOC Operator & Security Supervisor</div>
+          <div class="tl-date">2022 – 2025</div>
+        </div>
+        <div class="tl-company">SIS Security — NTT Global Data Centre (Tier-III), Mumbai</div>
+        <ul class="tl-bullets">
+          <li>Operated 24/7 SOC overseeing <strong>100+ live surveillance feeds</strong> in a critical data centre.</li>
+          <li>Optimised Solus workflows → <strong>30% reduction</strong> in unauthorised access violations, 100% uptime.</li>
+          <li>Managed real-time incident triage, vendor access coordination, security alert escalation.</li>
+          <li>Manual log analysis identified recurring intrusion patterns — now automated with Python.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🛣️</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div class="tl-title">Operations Supervisor — MEP Infrastructure</div>
+          <div class="tl-date">2020 – 2022</div>
+        </div>
+        <div class="tl-company">MSRDC Undertaking — Mulund LBS Toll Plaza, Mumbai</div>
+        <ul class="tl-bullets">
+          <li>Managed MEP infrastructure operations and team productivity at large-scale public site.</li>
+          <li>Coordinated with vendors — <strong>zero-downtime SLA</strong> maintained. 100% compliance reporting.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot">🛡️</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div class="tl-title">Corporate Security Guard & Team Lead</div>
+          <div class="tl-date">2016 – 2020</div>
+        </div>
+        <div class="tl-company">SIS Security / NISA — Accenture, TCL, MCX, Mumbai</div>
+        <ul class="tl-bullets">
+          <li>Delivered comprehensive security for Tier-1 clients — Accenture (Airoli), TCL (Lower Parel), MCX.</li>
+          <li>CCTV audits, access-point management, emergency evacuation drills — <strong>zero-incident record</strong>.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -271,6 +396,44 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-tag">qualifications</div>
+  <h2>Education & <span>Certifications</span></h2>
+  <div class="edu-grid fade-up">
+    <div class="edu-card">
+      <div class="edu-year">2025 – 2026</div>
+      <h3>Applied AI & ML Essentials</h3>
+      <div class="inst">IIT Patna — Vishlesan i-Hub</div>
+      <div class="grade">✦ In Progress</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2014</div>
+      <h3>N.C.V.T. Fitter</h3>
+      <div class="inst">Siemens Ltd., Thane</div>
+      <div class="grade">73.46%</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2012</div>
+      <h3>I.T.I. Fitter</h3>
+      <div class="inst">I.T.I. Mulund, Mumbai</div>
+      <div class="grade">73.15%</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2010 / 2008</div>
+      <h3>H.S.C. & S.S.C.</h3>
+      <div class="inst">Mumbai Board</div>
+      <div class="grade">Maharashtra State Board</div>
+    </div>
+  </div>
+  <div class="cert-grid fade-up" style="margin-top:32px">
+    <div class="cert-item">🔐 <span>Basic Security Operations — NISA</span></div>
+    <div class="cert-item">🔥 <span>Fire Safety & Emergency Response — SIS</span></div>
+    <div class="cert-item">🩺 <span>First Aid Training — TSDC Siemens</span></div>
+    <div class="cert-item">⚙️ <span>CNC Lathe Programming — Mulund ITI</span></div>
+  </div>
+</section>
+
 <section id="contact" class="contact-bg">
   <div class="contact-inner fade-up">
     <div class="section-tag">get in touch</div>
@@ -284,6 +447,7 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
       <a href="https://wa.me/918850427883" target="_blank" class="contact-link">WhatsApp</a>
       <a href="https://www.linkedin.com/in/pramod-prakash-jadhav-42ba2281" target="_blank" class="contact-link">LinkedIn</a>
       <a href="https://github.com/pramodj551-oss" target="_blank" class="contact-link">GitHub</a>
+       <a href="https://share.streamlit.io/user/pramodj551-oss" target="_blank" class="contact-link">▶ Streamlit Apps</a>
     </div>
   </div>
 </section>
@@ -301,6 +465,32 @@ const observer = new IntersectionObserver((entries) => {
   });
 },{threshold: 0.1});
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+// Animate stat numbers
+function animateNum(el, target, suffix=''){
+  let start=0, dur=2000, step=dur/60
+  const inc = target/60
+  const timer = setInterval(()=>{
+    start = Math.min(start+inc, target)
+    el.textContent = (Number.isInteger(target)?Math.floor(start):start.toFixed(0)) + suffix
+    if(start>=target) clearInterval(timer)
+  }, step)
+}
+const statObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const nums = e.target.querySelectorAll('.stat-num')
+      nums[0]&&animateNum(nums[0],12,'+')
+      nums[1]&&animateNum(nums[1],5)
+      nums[2]&&animateNum(nums[2],40,'%')
+      nums[3]&&animateNum(nums[3],50,'K+')
+      statObs.disconnect()
+    }
+  })
+},{threshold:0.5})
+const hero = document.querySelector('.hero-stats')
+if(hero) statObs.observe(hero)
 </script>
 
 </body>
