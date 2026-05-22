@@ -456,7 +456,8 @@ footer p{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted)}
   <p>© 2026 Pramod Prakash Jadhav. Built with HTML, CSS.</p>
 </footer>
 
-  <script>
+  ```html
+<script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
@@ -464,30 +465,50 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 },{threshold: 0.1});
+
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
+
 
 // Animate stat numbers
 function animateNum(el, target, suffix=''){
-  let start=0, dur=2000, step=dur/60
-  const inc = target/60
-  const timer = setInterval(()=>
-  , step)
-}
-const statObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const nums = e.target.querySelectorAll('.stat-num')
-      nums[0]&&animateNum(nums[0],12,'+')
-      nums[1]&&animateNum(nums[1],5)
-      nums[2]&&animateNum(nums[2],40,'%')
-      nums[3]&&animateNum(nums[3],50,'K+')
-      statObs.disconnect()
+  let start = 0;
+  const duration = 2000;
+  const increment = target / 60;
+
+  const timer = setInterval(() => {
+    start += increment;
+
+    if(start >= target){
+      start = target;
+      clearInterval(timer);
     }
-  })
-},{threshold:0.5})
-const hero = document.querySelector('.hero-stats')
-if(hero) statObs.observe(hero)
+
+    el.textContent = Math.floor(start) + suffix;
+  }, duration / 60);
+}
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+
+      const nums = entry.target.querySelectorAll('.stat-num');
+
+      nums[0] && animateNum(nums[0], 5);
+      nums[1] && animateNum(nums[1], 12, '+');
+
+      statObs.disconnect();
+    }
+  });
+},{threshold:0.5});
+
+const hero = document.querySelector('.hero-stats');
+
+if(hero){
+  statObs.observe(hero);
+}
+</script>
+```
+
   
 <script>
 </body>
