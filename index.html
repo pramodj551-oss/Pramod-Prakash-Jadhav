@@ -208,6 +208,212 @@ footer a{color:var(--green);text-decoration:none}
 .unique-card h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--text)}
 .unique-card p{font-size:0.85rem;color:var(--muted);line-height:1.7}
 .unique-card p strong{color:var(--text)}
+  
+  /* ── CHAT SECTION STYLES ── */
+#chat {
+  background: var(--bg2);
+  padding: 90px 5%;
+}
+
+.chat-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chat-msg {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-msg {
+  flex-direction: row-reverse;
+}
+
+.user-msg .msg-bubble {
+  background: var(--green);
+  color: #000;
+}
+
+.bot-msg .msg-bubble {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.msg-avatar {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.bot-avatar {
+  background: rgba(0,229,160,0.12);
+  border: 1px solid rgba(0,229,160,0.3);
+}
+
+.user-avatar {
+  background: rgba(0,229,160,0.3);
+  border: 1px solid var(--green);
+}
+
+.msg-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.msg-bubble strong {
+  color: var(--green);
+}
+
+.msg-bubble a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--green);
+}
+
+.msg-bubble a:hover {
+  text-decoration: underline;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+}
+
+.chat-input {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text);
+  font-family: 'DM Sans',sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: var(--green);
+  background: rgba(255,255,255,0.08);
+}
+
+.chat-input::placeholder {
+  color: var(--muted);
+}
+
+.chat-send-btn {
+  background: var(--green);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: 'Syne',sans-serif;
+  transition: opacity 0.2s;
+}
+
+.chat-send-btn:hover {
+  opacity: 0.9;
+}
+
+.chat-send-btn:active {
+  transform: scale(0.98);
+}
+
+.chat-suggestions {
+  padding: 8px 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  background: rgba(0,229,160,0.04);
+}
+
+.suggestion-btn {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Mono',monospace;
+}
+
+.suggestion-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(0,229,160,0.1);
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--green2);
+  border-radius: 3px;
+}
+
+@media(max-width:600px) {
+  .chat-container {
+    height: 400px;
+  }
+  .msg-bubble {
+    max-width: 100%;
+  }
+  .chat-suggestions {
+    flex-direction: column;
+  }
+  .suggestion-btn {
+    width: 100%;
+    text-align: center;
+  }
+  }
+  
 </style>
 </head>
 <body>
@@ -561,6 +767,43 @@ footer a{color:var(--green);text-decoration:none}
   </div>
 </section>
 
+  <!-- CHAT / DEMO SECTION -->
+<section id="chat">
+  <div class="section-tag">interactive demo</div>
+  <h2>Chat With <span>My AI</span></h2>
+  
+  <div class="chat-container fade-up">
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot-msg">
+        <div class="msg-avatar bot-avatar">🤖</div>
+        <div class="msg-bubble">
+          Hi! 👋 I'm Pramod's AI assistant. Ask me about his projects, skills, or experience!
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat-input-row">
+      <input 
+        type="text" 
+        id="chatInput" 
+        class="chat-input" 
+        placeholder="Ask me anything... (e.g., 'What projects have you built?')"
+        onkeypress="if(event.key==='Enter') sendMessage()"
+      />
+      <button class="chat-send-btn" onclick="sendMessage()">
+        <span>Send</span>
+      </button>
+    </div>
+    
+    <div class="chat-suggestions">
+      <span class="suggestion-btn" onclick="sendMessage('What projects have you built?')">Projects</span>
+      <span class="suggestion-btn" onclick="sendMessage('What are your skills?')">Skills</span>
+      <span class="suggestion-btn" onclick="sendMessage('Tell me about your experience')">Experience</span>
+      <span class="suggestion-btn" onclick="sendMessage('How can I hire you?')">Hire</span>
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-tag">qualifications</div>
@@ -677,6 +920,119 @@ const statObs = new IntersectionObserver(entries=>{
 },{threshold:0.5})
 const hero = document.querySelector('.hero-stats')
 if(hero) statObs.observe(hero)
+</script>
+  <script>
+    
+// ── KNOWLEDGE BASE ──────────────────────────────────────────
+const KNOWLEDGE_BASE = {
+  projects: {
+    keywords: ['project','build','create','develop','work','made'],
+    response: `I've built <strong>6 live AI projects</strong>:\n\n
+    🔍 <strong>Security Log Anomaly Detection</strong> — Isolation Forest detecting suspicious login patterns (94% precision, 50K+ logs)\n
+    📈 <strong>BankBeES Stock Predictor</strong> — Random Forest predicting ETF prices (R² 0.91)\n
+    🤖 <strong>RAG Content Creator</strong> — LangChain + FAISS for context-aware Q&A\n
+    🌍 <strong>GDP Dashboard</strong> — Interactive Plotly charts for 180+ countries\n
+    🔒 <strong>PII Detection</strong> — ML classifier for GDPR/DPDP compliance\n
+    🛡️ <strong>Cyber Threat Intelligence Dashboard</strong> — Real-time network anomaly detection\n\nAll live on my portfolio!`
+  },
+
+  skills: {
+    keywords: ['skill','know','technology','tech','python','ml','ai','learn'],
+    response: `My tech stack:\n\n
+    <strong>🤖 ML/AI:</strong> Isolation Forest • Random Forest • LangChain • FAISS\n
+    <strong>💻 Languages:</strong> Python • JavaScript • HTML/CSS\n
+    <strong>📊 Data:</strong> Pandas • NumPy • Scikit-Learn • Plotly\n
+    <strong>🚀 Tools:</strong> Streamlit • Jupyter • GitHub\n
+    <strong>🔐 Security:</strong> SOC Operations • Incident Response\n\nLearning through IIT Patna's AI & ML Essentials programme!`
+  },
+
+  experience: {
+    keywords: ['experience','work','job','career','soc','security','years'],
+    response: `<strong>My Journey:</strong>\n\n
+    🔐 <strong>Security Operations Officer</strong> — Current\n
+    AP Securitas, Godrej IT Park — Python automation for access-log anomalies\n\n
+    💼 <strong>SOC Operator & Supervisor</strong> — 2022–2025\n
+    NTT Global Data Centre — 24/7 operations on 100+ CCTV feeds\n\n
+    🛡️ <strong>Security Guard & Team Lead</strong> — 2016–2020\n
+    Accenture, TCL, MCX (Tier-1 clients)\n\n
+    <strong>Total: 12+ years in SOC operations + ML skills!</strong>`
+  },
+
+  hire: {
+    keywords: ['hire','job','role','available','position','contact','email'],
+    response: `I'm Open to Work! 🎯\n\n
+    <strong>Roles:</strong> AI-Augmented SOC Analyst • Security Data Analyst\n
+    <strong>📧 Email:</strong> <a href="mailto:pramodj551@gmail.com">pramodj551@gmail.com</a>\n
+    <strong>📱 Phone:</strong> +91 88504 27883\n
+    <strong>🌍 Location:</strong> Mumbai · Open to relocation\n\nLet's build AI-powered security solutions! 🚀`
+  },
+
+  hello: {
+    keywords: ['hi','hey','hello','what','who','help'],
+    response: `Hey! 👋 I'm Pramod's AI assistant.\n\n
+    Ask me about:\n
+    • <strong>Projects</strong> • <strong>Skills</strong> • <strong>Experience</strong>\n
+    • <strong>Hire</strong> • <strong>Education</strong>\n\nWhat can I help with? 😊`
+  }
+};
+
+// ── CHAT LOGIC ──────────────────────────────────────────────
+function sendMessage(text = null) {
+  const input = document.getElementById('chatInput');
+  const msg = text || input.value.trim();
+  if (!msg) return;
+
+  addMessage(msg, 'user');
+  input.value = '';
+
+  setTimeout(() => {
+    const response = generateResponse(msg);
+    addMessage(response, 'bot');
+  }, 600);
+}
+
+function addMessage(text, sender) {
+  const msgDiv = document.createElement('div');
+  msgDiv.className = `chat-msg ${sender}-msg`;
+
+  const avatar = document.createElement('div');
+  avatar.className = `msg-avatar ${sender}-avatar`;
+  avatar.textContent = sender === 'user' ? '👤' : '🤖';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = text.replace(/\n/g, '<br/>');
+
+  msgDiv.appendChild(avatar);
+  msgDiv.appendChild(bubble);
+
+  const messagesDiv = document.getElementById('chatMessages');
+  messagesDiv.appendChild(msgDiv);
+  messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+function generateResponse(userMsg) {
+  const msgLower = userMsg.toLowerCase();
+
+  for (const [key, data] of Object.entries(KNOWLEDGE_BASE)) {
+    if (data.keywords.some(kw => msgLower.includes(kw))) {
+      return data.response;
+    }
+  }
+
+  const defaults = [
+    "That's a great question! Ask me about my <strong>projects</strong>, <strong>skills</strong>, or <strong>experience</strong>.",
+    "I love that! For more details, check my portfolio. 🚀",
+    "Interesting! Want to know about my <strong>AI projects</strong> or <strong>SOC background</strong>?",
+    "Great question! Feel free to <a href='mailto:pramodj551@gmail.com'>email me</a> for details. 💬"
+  ];
+
+  return defaults[Math.floor(Math.random() * defaults.length)];
+}
+
+window.addEventListener('load', () => {
+  document.getElementById('chatInput').focus();
+});
 </script>
 </body>
 </html>
