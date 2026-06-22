@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="google-site-verification" content="tEAixg5L9iJSGRpw2kUU9HZBH5koWD3kiTnCeuQFIf0" />
+<title>Pramod Prakash Jadhav | AI-Augmented SOC Analyst</title>
+<meta name="description" content="Pramod Prakash Jadhav — AI-Augmented SOC Analyst | ML Engineer | 6 Live Projects | IIT Patna">
+<meta name="keywords" content="SOC Analyst, ML Engineer, Python, Anomaly Detection, Threat Intelligence">
+
+<!-- Favicon Setup -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+<link rel="manifest" href="/site.webmanifest">
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080c10;
+  --bg2: #0d1219;
+  --bg3: #111820;
+  --green: #00e5a0;
+  --green2: #00b87a;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --blue: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --border: rgba(0,229,160,0.12);
+  --card: rgba(255,255,255,0.03);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; line-height: 1.6; overflow-x: hidden; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green2); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(8, 12, 16, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--green);
+  letter-spacing: 0.05em;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green); }
+.nav-cta {
+  background: var(--green);
+  color: #000;
+  padding: 7px 18px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.85; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 229, 160, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 229, 160, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 229, 160, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 229, 160, 0.08);
+  border: 1px solid rgba(0, 229, 160, 0.2);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+h1 span { color: var(--green); }
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 540px;
+  margin-bottom: 36px;
+  line-height: 1.7;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.btn-primary {
+  background: var(--green);
+  color: #000;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  font-family: 'Syne', sans-serif;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+.btn-secondary:hover { border-color: var(--green); color: var(--green); }
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.stat-item { font-family: 'DM Mono', monospace; }
+.stat-num {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--green);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── SECTIONS ── */
+section { padding: 90px 5%; }
+.section-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--green);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-tag::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--green);
+  opacity: 0.4;
+}
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+h2 span { color: var(--green); }
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 50px;
+}
+.about-text p {
+  color: rgba(226, 232, 240, 0.75);
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-size: 0.97rem;
+}
+.about-text p strong { color: var(--text); }
+.about-quote {
+  border-left: 3px solid var(--green);
+  padding: 16px 20px;
+  background: rgba(0, 229, 160, 0.04);
+  border-radius: 0 8px 8px 0;
+  margin-top: 24px;
+  font-style: italic;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.about-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.about-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 22px;
+  transition: border-color 0.2s;
+}
+.about-card:hover { border-color: rgba(0, 229, 160, 0.3); }
+.about-card-icon { font-size: 1.4rem; margin-bottom: 8px; }
+.about-card h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+.about-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── EXPERIENCE ── */
+.timeline {
+  margin-top: 48px;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--green), transparent);
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.tl-dot {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  position: relative;
+}
+.tl-content {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  transition: border-color 0.2s;
+}
+.tl-content:hover { border-color: rgba(0, 229, 160, 0.3); }
+.tl-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.tl-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+}
+.tl-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--green);
+  background: rgba(0, 229, 160, 0.08);
+  padding: 3px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.tl-company {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+  font-style: italic;
+}
+.tl-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tl-bullets li {
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.7);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.6;
+}
+.tl-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-size: 0.7rem;
+  top: 3px;
+}
+.tl-bullets li strong { color: var(--text); }
+
+/* ── SKILLS ── */
+.skills-bg { background: var(--bg2); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.skill-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s;
+}
+.skill-card:hover { border-color: rgba(0, 229, 160, 0.35); transform: translateY(-3px); }
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.skill-icon.sec { background: rgba(239, 68, 68, 0.12); }
+.skill-icon.ai { background: rgba(0, 229, 160, 0.1); }
+.skill-icon.data { background: rgba(56, 189, 248, 0.1); }
+.skill-icon.dev { background: rgba(245, 158, 11, 0.1); }
+.skill-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.skill-tag {
+  display: inline-block;
+  background: rgba(0, 229, 160, 0.08);
+  color: var(--green);
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.7rem;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── CHAT ── */
+.chat-container {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  margin-top: 28px;
+}
+#chatMessages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chat-msg {
+  display: flex;
+  gap: 12px;
+  animation: slideUp 0.3s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.user-msg { justify-content: flex-end; }
+.bot-msg { justify-content: flex-start; }
+.msg-avatar {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.msg-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  word-wrap: break-word;
+}
+.user-msg .msg-bubble {
+  background: rgba(0, 229, 160, 0.2);
+  border: 1px solid rgba(0, 229, 160, 0.3);
+  color: var(--text);
+}
+.bot-msg .msg-bubble {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: rgba(226, 232, 240, 0.9);
+}
+.bot-msg .msg-bubble strong { color: var(--green); }
+.bot-msg .msg-bubble a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid var(--green);
+}
+.bot-msg .msg-bubble a:hover { opacity: 0.8; }
+#chatInput {
+  border: none;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  resize: none;
+}
+#chatInput::placeholder { color: var(--muted); }
+#chatInput:focus {
+  outline: none;
+  border-top: 1px solid rgba(0, 229, 160, 0.3);
+}
+.chat-actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 16px;
+  flex-wrap: wrap;
+}
+.chat-btn {
+  background: transparent;
+  border: 1px solid rgba(0, 229, 160, 0.3);
+  color: var(--green);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Mono', monospace;
+}
+.chat-btn:hover {
+  background: rgba(0, 229, 160, 0.1);
+  border-color: var(--green);
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  background: linear-gradient(135deg, rgba(0, 229, 160, 0.05), rgba(56, 189, 248, 0.05));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 48px 40px;
+  margin-top: 28px;
+  text-align: center;
+}
+.contact-section p {
+  color: rgba(226, 232, 240, 0.8);
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 229, 160, 0.08);
+  color: var(--text);
+  padding: 10px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0, 229, 160, 0.2);
+  transition: all 0.2s;
+}
+.contact-link:hover {
+  background: rgba(0, 229, 160, 0.15);
+  border-color: var(--green);
+  color: var(--green);
+}
+.contact-link.email { color: var(--green); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 28px 5%;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+footer a {
+  color: var(--green);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+footer a:hover { opacity: 0.8; }
+
+/* ── ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 14px 5%; }
+  .nav-links { gap: 16px; font-size: 0.75rem; }
+  .hero { padding: 100px 5% 60px; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .msg-bubble { max-width: 90%; }
+  .contact-section { padding: 32px 20px; }
+  .contact-links { flex-direction: column; gap: 12px; }
+  .contact-link { width: 100%; justify-content: center; }
+  section { padding: 60px 5%; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Pramod.dev</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#chat">Chat</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:pramodj551@gmail.com" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content fade-up">
+    <div class="hero-badge">
+      AI-Augmented SOC Analyst & ML Engineer
+    </div>
+    <h1>Building <span>Intelligent Security</span> Systems</h1>
+    <p class="hero-sub">
+      I combine <strong>security operations expertise</strong> with <strong>machine learning</strong> to detect threats before they strike. <strong>6 live AI projects</strong> deployed, <strong>12+ years</strong> in SOC operations.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Let's Connect</a>
+      <a href="https://github.com/pramodj551-oss" target="_blank" class="btn-secondary">View GitHub</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-label">Years SOC Ops</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">6</span>
+        <span class="stat-label">AI Projects</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">94</span>
+        <span class="stat-label">Accuracy %</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">50</span>
+        <span class="stat-label">K+ Logs Analyzed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <span class="section-tag">About Me</span>
+  <h2>Security Expert Meets <span>AI Engineer</span></h2>
+  
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <p>
+        I'm a <strong>Security Operations Center (SOC) Analyst</strong> with deep expertise in <strong>threat intelligence</strong> and <strong>anomaly detection</strong>. Currently upskilling in <strong>Machine Learning</strong> through IIT Patna's AI & ML Essentials programme.
+      </p>
+      <p>
+        My mission: <strong>Bridge security operations and AI</strong> to create smarter, faster threat detection systems. I've built models that catch what humans miss, and I'm passionate about making security proactive, not reactive.
+      </p>
+      <div class="about-quote">
+        "Every log tells a story. Every anomaly is a clue. AI helps us read faster." — My approach to security
+      </div>
+    </div>
+    
+    <div class="about-cards fade-up">
+      <div class="about-card">
+        <div class="about-card-icon">🔐</div>
+        <h4>Security Specialist</h4>
+        <p>12+ years in SOC operations, incident response, and threat monitoring across Fortune 500 companies.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🤖</div>
+        <h4>ML Engineer</h4>
+        <p>Python, Scikit-Learn, TensorFlow. Building anomaly detectors, classifiers, and predictive models.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">📊</div>
+        <h4>Data Analyst</h4>
+        <p>Pandas, Plotly, SQL. Transforming raw logs into actionable insights with interactive dashboards.</p>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🚀</div>
+        <h4>Full-Stack Developer</h4>
+        <p>Streamlit, FastAPI, JavaScript. Deploying end-to-end ML solutions with clean, scalable code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <span class="section-tag">Career Path</span>
+  <h2><span>Professional</span> Journey</h2>
+  
+  <div class="timeline">
+    <div class="tl-item fade-up">
+      <div class="tl-dot">▶</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Security Operations Officer</div>
+            <div class="tl-company">AP Securitas (Godrej IT Park)</div>
+          </div>
+          <span class="tl-date">2024 – Present</span>
+        </div>
+        <ul class="tl-bullets">
+          <li><strong>Python automation</strong> for access-log anomaly detection</li>
+          <li>Reduced false positives by <strong>35%</strong> using ML models</li>
+          <li>Managed real-time security monitoring across <strong>200+ servers</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div class="tl-dot">◆</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">SOC Operator & Supervisor</div>
+            <div class="tl-company">NTT Global Data Centre</div>
+          </div>
+          <span class="tl-date">2022 – 2025</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>24/7 operations monitoring <strong>100+ CCTV feeds</strong> and access logs</li>
+          <li>Incident response: <strong>detected and contained 50+ security events</strong></li>
+          <li>Trained team on threat intelligence frameworks</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item fade-up">
+      <div class="tl-dot">★</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Security Guard & Team Lead</div>
+            <div class="tl-company">Accenture, TCL, MCX</div>
+          </div>
+          <span class="tl-date">2016 – 2020</span>
+        </div>
+        <ul class="tl-bullets">
+          <li>Managed physical security at <strong>Tier-1 Fortune 500</strong> offices</li>
+          <li>Supervised <strong>15+ team members</strong>, maintained 100% incident response rate</li>
+          <li>Reduced unauthorized access incidents by <strong>60%</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-bg">
+  <span class="section-tag">Expertise</span>
+  <h2><span>Technical</span> Stack</h2>
+  
+  <div class="skills-grid">
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon sec">🔐</div>
+        <h3>Security</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">SOC Operations</span>
+        <span class="skill-tag">Incident Response</span>
+        <span class="skill-tag">Threat Intel</span>
+        <span class="skill-tag">SIEM</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon ai">🤖</div>
+        <h3>Machine Learning</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Isolation Forest</span>
+        <span class="skill-tag">Random Forest</span>
+        <span class="skill-tag">LangChain</span>
+        <span class="skill-tag">FAISS</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon dev">💻</div>
+        <h3>Languages & Frameworks</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">HTML/CSS</span>
+        <span class="skill-tag">Streamlit</span>
+      </div>
+    </div>
+
+    <div class="skill-card fade-up">
+      <div class="skill-card-header">
+        <div class="skill-icon data">📊</div>
+        <h3>Data & Analytics</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Scikit-Learn</span>
+        <span class="skill-tag">Plotly</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section id="chat">
+  <span class="section-tag">Ask Me Anything</span>
+  <h2>AI <span>Assistant</span></h2>
+  <p style="color: var(--muted); margin-top: 16px;">Ask about my projects, skills, experience, or how to hire me.</p>
+  
+  <div class="chat-container fade-up">
+    <div id="chatMessages"></div>
+    <input type="text" id="chatInput" placeholder="Ask me something... (e.g., 'Tell me about your projects')">
+  </div>
+  
+  <div class="chat-actions fade-up">
+    <button class="chat-btn" onclick="sendMessage('Tell me about your projects')">🔍 Projects</button>
+    <button class="chat-btn" onclick="sendMessage('What are your skills?')">🤖 Skills</button>
+    <button class="chat-btn" onclick="sendMessage('Tell me about your experience')">💼 Experience</button>
+    <button class="chat-btn" onclick="sendMessage('How can I hire you?')">💼 Hire</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-tag">Get in Touch</span>
+  <h2>Let's Build <span>Together</span></h2>
+  
+  <div class="contact-section fade-up">
+    <p>Open to AI-Augmented SOC Analyst, Security Data Analyst, and Threat Intelligence roles. Available for hybrid or relocation across India.</p>
+    <div class="contact-links">
+      <a href="mailto:pramodj551@gmail.com" class="contact-link email">✉ pramodj551@gmail.com</a>
+      <a href="tel:+918850427883" class="contact-link">☎ +91 8850427883</a>
+      <a href="https://wa.me/918850427883" target="_blank" class="contact-link">💬 WhatsApp</a>
+      <a href="https://www.linkedin.com/in/pramod-prakash-jadhav-42ba2281" target="_blank" class="contact-link">🔗 LinkedIn</a>
+      <a href="https://github.com/pramodj551-oss" target="_blank" class="contact-link">⌥ GitHub</a>
+      <a href="https://share.streamlit.io/user/pramodj551-oss" target="_blank" class="contact-link">▶ Streamlit</a>
+    </div>
+    <p style="font-size: 0.82rem; color: var(--muted);">📍 Mumbai · India · Open to Relocation</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Built by <a href="https://www.linkedin.com/in/pramod-prakash-jadhav-42ba2281">Pramod Prakash Jadhav</a> · Applied AI & ML Essentials · IIT Patna (Vishlesan i-Hub) · <a href="https://github.com/pramodj551-oss">GitHub</a></p>
+</footer>
+
+<script>
+// Fade-up animation on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible')
+  })
+}, { threshold: 0.1 })
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el))
+
+// Animate stat numbers
+function animateNum(el, target, suffix = '') {
+  let start = 0, dur = 2000, step = dur / 60
+  const inc = target / 60
+  const timer = setInterval(() => {
+    start = Math.min(start + inc, target)
+    el.textContent = (Number.isInteger(target) ? Math.floor(start) : start.toFixed(0)) + suffix
+    if (start >= target) clearInterval(timer)
+  }, step)
+}
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const nums = e.target.querySelectorAll('.stat-num')
+      nums[0] && animateNum(nums[0], 12, '+')
+      nums[1] && animateNum(nums[1], 6)
+      nums[2] && animateNum(nums[2], 94, '%')
+      nums[3] && animateNum(nums[3], 50, 'K+')
+      statObs.disconnect()
+    }
+  })
+}, { threshold: 0.5 })
+
+const hero = document.querySelector('.hero-stats')
+if (hero) statObs.observe(hero)
+
+// Chat functionality
+const chatMessages = document.getElementById('chatMessages')
+const chatInput = document.getElementById('chatInput')
+
+const KNOWLEDGE_BASE = {
+  projects: {
+    keywords: ['project', 'build', 'create', 'develop', 'work', 'made'],
+    response: `I've built <strong>6 live AI projects</strong>:<br><br>
+    🔍 <strong>Security Log Anomaly Detection</strong> — Isolation Forest detecting suspicious login patterns (94% precision)<br>
+    📈 <strong>BankBeES Stock Predictor</strong> — Random Forest predicting ETF prices (R² 0.91)<br>
+    🤖 <strong>RAG Content Creator</strong> — LangChain + FAISS for context-aware Q&A<br>
+    🌍 <strong>GDP Dashboard</strong> — Interactive Plotly charts for 180+ countries<br>
+    🔒 <strong>PII Detection</strong> — ML classifier for GDPR/DPDP compliance<br>
+    🛡️ <strong>Cyber Threat Intelligence Dashboard</strong> — Real-time network anomaly detection<br><br>All live on my portfolio!`
+  },
+  skills: {
+    keywords: ['skill', 'know', 'technology', 'tech', 'python', 'ml', 'ai', 'learn'],
+    response: `My tech stack:<br><br>
+    <strong>🤖 ML/AI:</strong> Isolation Forest • Random Forest • LangChain • FAISS<br>
+    <strong>💻 Languages:</strong> Python • JavaScript • HTML/CSS<br>
+    <strong>📊 Data:</strong> Pandas • NumPy • Scikit-Learn • Plotly<br>
+    <strong>🚀 Tools:</strong> Streamlit • Jupyter • GitHub<br>
+    <strong>🔐 Security:</strong> SOC Operations • Incident Response<br><br>Learning through IIT Patna's AI & ML Essentials programme!`
+  },
+  experience: {
+    keywords: ['experience', 'work', 'job', 'career', 'soc', 'security', 'years'],
+    response: `<strong>My Journey:</strong><br><br>
+    🔐 <strong>Security Operations Officer</strong> — Current<br>
+    AP Securitas, Godrej IT Park — Python automation for access-log anomalies<br><br>
+    💼 <strong>SOC Operator & Supervisor</strong> — 2022–2025<br>
+    NTT Global Data Centre — 24/7 operations on 100+ CCTV feeds<br><br>
+    🛡️ <strong>Security Guard & Team Lead</strong> — 2016–2020<br>
+    Accenture, TCL, MCX (Tier-1 clients)<br><br>
+    <strong>Total: 12+ years in SOC operations + ML skills!</strong>`
+  },
+  hire: {
+    keywords: ['hire', 'job', 'role', 'available', 'position', 'contact', 'email'],
+    response: `I'm Open to Work! 🎯<br><br>
+    <strong>Roles:</strong> AI-Augmented SOC Analyst • Security Data Analyst<br>
+    <strong>📧 Email:</strong> <a href="mailto:pramodj551@gmail.com">pramodj551@gmail.com</a><br>
+    <strong>📱 Phone:</strong> +91 8850427883<br>
+    <strong>🌍 Location:</strong> Mumbai · Open to relocation<br><br>Let's build AI-powered security solutions! 🚀`
+  },
+  hello: {
+    keywords: ['hi', 'hey', 'hello', 'what', 'who', 'help'],
+    response: `Hey! 👋 I'm Pramod's AI assistant.<br><br>
+    Ask me about:<br>
+    • <strong>Projects</strong> • <strong>Skills</strong> • <strong>Experience</strong><br>
+    • <strong>Hire</strong><br><br>What can I help with? 😊`
+  }
+}
+
+function sendMessage(suggestedMsg) {
+  const msg = suggestedMsg || chatInput.value.trim()
+  if (!msg) return
+  
+  const userDiv = document.createElement('div')
+  userDiv.className = 'chat-msg user-msg'
+  userDiv.innerHTML = `<div class="msg-avatar">👤</div><div class="msg-bubble">${msg}</div>`
+  chatMessages.appendChild(userDiv)
+  
+  if (!suggestedMsg) chatInput.value = ''
+  
+  let response = "That's a great question! I might not have that specific info, but feel free to ask about my projects, skills, experience, or how to hire me! 😊"
+  
+  const msgLower = msg.toLowerCase()
+  for (const [key, data] of Object.entries(KNOWLEDGE_BASE)) {
+    if (data.keywords.some(kw => msgLower.includes(kw))) {
+      response = data.response
+      break
+    }
+  }
+  
+  setTimeout(() => {
+    const botDiv = document.createElement('div')
+    botDiv.className = 'chat-msg bot-msg'
+    botDiv.innerHTML = `<div class="msg-avatar">🤖</div><div class="msg-bubble">${response}</div>`
+    chatMessages.appendChild(botDiv)
+    chatMessages.scrollTop = chatMessages.scrollHeight
+  }, 500)
+  
+  chatMessages.scrollTop = chatMessages.scrollHeight
+}
+
+chatInput?.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage()
+})
+</script>
+
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+</body>
+</html>
