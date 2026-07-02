@@ -17,7 +17,7 @@ Python · Pandas · NumPy · Scikit-Learn · Matplotlib · Seaborn · SQL
 Machine Learning · Anomaly Detection · Data Analysis · Log Analysis · Threat Intelligence
 
 **Domains:**  
-Cybersecurity · SOC Operations · Risk Analytics · Incident Response
+· SOC Operations · Risk Analytics · Incident Response
 
 ---
 
