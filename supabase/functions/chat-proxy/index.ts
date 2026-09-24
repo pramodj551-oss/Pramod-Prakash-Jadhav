@@ -8,6 +8,34 @@ const corsHeaders = {
   "Vary": "Origin",
 };
 
+
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_REQUESTS = 20;
+const MAX_REQUEST_BYTES = 12_000;
+const rateBuckets = new Map<string, { count: number; resetAt: number }>();
+
+function clientKey(req: Request) {
+  return req.headers.get("cf-connecting-ip")
+    ?? req.headers.get("x-real-ip")
+    ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
+    ?? "unknown";
+}
+
+function rateLimit(req: Request) {
+  const now = Date.now();
+  const key = clientKey(req);
+  const current = rateBuckets.get(key);
+  if (!current || now >= current.resetAt) {
+    rateBuckets.set(key, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return { allowed: true, retryAfter: 60 };
+  }
+  current.count += 1;
+  if (current.count > RATE_LIMIT_MAX_REQUESTS) {
+    return { allowed: false, retryAfter: Math.max(1, Math.ceil((current.resetAt - now) / 1000)) };
+  }
+  return { allowed: true, retryAfter: Math.max(1, Math.ceil((current.resetAt - now) / 1000)) };
+}
+
 const SYSTEM_PROMPT = `You are Pramod Jadhav's professional portfolio assistant.
 Use only verified information supplied here. Do not invent employers, production deployments, cloud architectures, performance metrics, certifications, or project results.
 
@@ -33,6 +61,17 @@ Deno.serve(async (req: Request) => {
 
   const origin = req.headers.get("origin");
   if (origin && origin !== ALLOWED_ORIGIN) return response({ error: "Origin not allowed." }, 403);
+
+  const limit = rateLimit(req);
+  if (!limit.allowed) {
+    return new Response(JSON.stringify({ error: "Too many requests. Please try again later." }), {
+      status: 429,
+      headers: { ...corsHeaders, "Content-Type": "application/json; charset=utf-8", "Retry-After": String(limit.retryAfter) },
+    });
+  }
+
+  const contentLength = Number(req.headers.get("content-length") ?? "0");
+  if (contentLength > MAX_REQUEST_BYTES) return response({ error: "Request too large." }, 413);
 
   try {
     const body = await req.json();
