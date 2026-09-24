@@ -1,0 +1,56 @@
+name: Portfolio static CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate canonical HTML
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          p = Path("index.html")
+          text = p.read_text(encoding="utf-8")
+
+          class Parser(HTMLParser):
+              pass
+
+          Parser().feed(text)
+
+          required = [
+              "resume/Pramod_Prakash_Jadhav_Resume.pdf",
+              "https://github.com/pramodj551-oss",
+              "https://www.linkedin.com/in/pramod-prakash-jadhav-42ba2281",
+              "https://vwtzoegpkadwwbteqhdv.supabase.co",
+          ]
+          forbidden = [
+              "https://api.anthropic.com/v1/messages",
+              "claude_key",
+              "anthropic-dangerous-direct-browser-access",
+          ]
+
+          for value in required:
+              assert value in text, f"missing required value: {value}"
+          for value in forbidden:
+              assert value not in text, f"forbidden browser credential/API pattern: {value}"
+          assert 'href="#"' not in text
+          assert "EDUCATIONAL THREAT DEMO" in text
+          assert "/functions/v1/chat-proxy" in text
+          assert "textContent=String(text)" in text
+          print("Canonical portfolio HTML validation passed.")
+          PY
+
+      - name: Ensure no duplicate root portfolio HTML
+        run: |
+          count=$(find . -maxdepth 1 -type f -iname '*.html' ! -name 'index.html' | wc -l)
+          test "$count" -eq 0
+          echo "Duplicate root portfolio HTML count: $count"
