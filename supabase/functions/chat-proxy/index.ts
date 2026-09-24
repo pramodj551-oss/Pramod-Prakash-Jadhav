@@ -1,6 +1,6 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
-const ALLOWED_ORIGIN = "https://pramodjadhav.vercel.app";
+const ALLOWED_ORIGIN = "https://pramod-prakash-jadhav.vercel.app";
 const corsHeaders = {
   "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
   "Access-Control-Allow-Methods": "POST, OPTIONS",

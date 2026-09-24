@@ -31,6 +31,7 @@ jobs:
               "https://github.com/pramodj551-oss",
               "https://www.linkedin.com/in/pramod-prakash-jadhav-42ba2281",
               "https://vwtzoegpkadwwbteqhdv.supabase.co",
+              "https://pramod-prakash-jadhav.vercel.app/",
           ]
           forbidden = [
               "https://api.anthropic.com/v1/messages",
@@ -45,6 +46,7 @@ jobs:
           assert 'href="#"' not in text
           assert "EDUCATIONAL THREAT DEMO" in text
           assert "/functions/v1/chat-proxy" in text
+          assert "https://pramod-prakash-jadhav.vercel.app/" in text
           assert "textContent=String(text)" in text
           print("Canonical portfolio HTML validation passed.")
           PY
