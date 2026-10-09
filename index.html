@@ -1147,8 +1147,8 @@ function addLog(msg, cls) {
 updateDemo();
 
 // ── Portfolio Chatbot via Supabase Edge Function ──
-const SUPABASE_URL='https://vwtzoegpkadwwbteqhdv.supabase.co';
-const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3dHpvZWdwa2Fkd3didGVxaGR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYyMjI3NTcsImV4cCI6MjA5MTc5ODc1N30.1paaW35ZotMQDSRS4mUmZJImk0Z30mBFjy6cx2TIxHw';
+const SUPABASE_URL='https://kuujewqcvxrovkaxpdlp.supabase.co';
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt1dWpld3Fjdnhyb3ZrYXhwZGxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAyMjk2MjcsImV4cCI6MjEwNTgwNTYyN30.YIhAB1wD-QFAVQkvjky3ESwiqEcZ6KOTxZfT6zcEHCM';
 const CHAT_ENDPOINT=SUPABASE_URL+'/functions/v1/chat-proxy';
 const chatHistory=[];
 function appendMsg(text,role){const win=document.getElementById('chatWindow'),div=document.createElement('div');div.className='chat-msg '+role;if(role==='bot'){const label=document.createElement('div');label.className='bot-label';label.textContent='PRAMOD AI ✦ PORTFOLIO';div.appendChild(label);}const body=document.createElement('div');body.textContent=String(text);div.appendChild(body);win.appendChild(div);win.scrollTop=win.scrollHeight;}
